@@ -1,0 +1,17 @@
+import axios from 'axios';
+const API_BASE_URL='http://localhost:3000/api/User';
+console.log('apiServices.js loaded');
+const api=axios.create({
+   baseURL:API_BASE_URL, 
+});
+   const signup=async(UserData)=>{
+try{
+    const response=await api.post('/Signup',UserData)
+    
+    return response.data
+}catch(error){
+    console.error('Error during signup:',error)
+    throw error
+}
+  };
+  module.exports={signup};
